@@ -154,7 +154,7 @@ L.Control.EasyPrint = L.Control.extend({
                 plugin._resizeAndPrintMap(sizeMode);
             })
             .catch(function (error) {
-                plugin._map.fire('easyPrint-error', {stage: 'placeholder', error});
+                plugin._map.fire('easyPrint-error', {stage: 'placeholder', error, sizeMode});
                 plugin._restoreMap();
             });
     },
@@ -220,7 +220,7 @@ L.Control.EasyPrint = L.Control.extend({
                 plugin._map.fire("easyPrint-finished");
             })
             .catch(function (error) {
-                plugin._map.fire('easyPrint-error', {stage: 'print', error});
+                plugin._map.fire('easyPrint-error', {stage: 'print', error, sizeMode: sizemode});
             })
             .finally( () => {
                 plugin._restoreMap();
